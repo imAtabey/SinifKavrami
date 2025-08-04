@@ -34,7 +34,19 @@
 // Ogrenci sınıfı ile örneklendirildi.
 
 #endregion
+#region Static Class ve Uyeler
+// statik sınıfların nesnesi oluşturulamaz
+// statik bir üyeye erişmek için direk sınıf adı ile erişilir.
+// Bir Sınıf statik yapılırsa bütün elemanları statik yapılmalı
+// Statik Sınıflar'a kalıtım uygulanamaz
+// normal metotlar o sınıftan oluşturulan nesneler ile çalışırken statik metotlar heryerden erişilebilir.
+// Erişim belirleyicileri yoktur.
+// Static Constructor o sınıfa ilk erişildiğinde bir kere çalışır daha sonra hiç çalışmaz!
+// Örnek olarak Calisanlar ve Islemler sınıfı kullanılmıştır.
 
+#endregion
+
+#region Constructor Örnekler
 // -> Constructor Örneği [Parametreli]
 Console.WriteLine("*** Constructor'a parametre verilerek nesne oluşturma ***");
 Calisan c1 = new Calisan("Ayşe","Kara",23415634,"İnsan Kaynakları");
@@ -52,7 +64,8 @@ Console.WriteLine("*** Sadece Ad ve Soyad Parametresi olan Constructor ile Nesne
 Calisan c3 = new Calisan("Hüseyin", "ÜTEBAY");
 c3.CalisanBilgileri();
 
-
+#endregion
+#region Encapsulation Örnekleri
 //-> Encapsulation Örneği
 Console.WriteLine("*** Encapsulation Örneği ***");
 Ogrenci o1 = new Ogrenci();
@@ -67,6 +80,25 @@ Ogrenci o2 = new("Deniz", "Arda", 256, 1);
 o2.SinifDusur();
 o2.SinifDusur();
 o2.OgrenciBilgileriGetir();
+
+#endregion
+#region Statik Sinif ve Uyeler Örnekleri
+Console.WriteLine("Çalışan Sayısı :{0}", Calisanlar.CalisanSayisi); //static cons tetiklendi.
+
+Calisanlar calisan1 = new Calisanlar("Ayşe", "Yılmaz", "İk Departmanı");
+Console.WriteLine("Çalışan Sayısı :{0}", Calisanlar.CalisanSayisi);
+Calisanlar calisan2 = new Calisanlar("Deniz", "Arda", "İk Departmanı");
+Calisanlar calisan3 = new Calisanlar("Hüseyin", "ÜTEBAY", "İk Departmanı");
+
+Console.WriteLine("Çalışan Sayısı :{0}", Calisanlar.CalisanSayisi);
+
+// Islemler i1 = new Islemler(); bu islem hata verir sınıf static. isim ile erişilir
+Console.WriteLine("Toplama İşlemi Sonucu :{0}", Islemler.Topla(100, 200));
+Console.WriteLine("Çıkarma İşlemi Sonucu :{0}", Islemler.Cikar(400, 50));
+
+#endregion
+
+
 
 
 class Calisan
@@ -154,3 +186,38 @@ class Ogrenci
     }
 
 }
+class Calisanlar
+{
+    private static int _calisanSayisi;
+
+    public static int CalisanSayisi { get => _calisanSayisi; }
+
+    private string _isim;
+    private string _soyisim;
+    private string _departman;
+    static Calisanlar()
+    {
+        _calisanSayisi = 0;
+    }
+    public Calisanlar(string isim, string soyisim, string departman)
+    {
+        this._isim = isim;
+        this._soyisim = soyisim;
+        this._departman = departman;
+        _calisanSayisi++;
+    }
+
+}
+static class Islemler
+{
+    public static long Topla(int sayi1, int sayi2)
+    {
+        return sayi1 + sayi2;
+    }
+    public static long Cikar(int sayi1, int sayi2)
+    {
+        return sayi1 - sayi2;
+    }
+}
+
+
