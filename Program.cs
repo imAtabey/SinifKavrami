@@ -54,6 +54,13 @@
 
 
 #endregion
+#region Enum Yapılar
+// Uygulama geliştirirken sabit durumdaki değerleri yönetmek için kullanılır.
+// verilen değerler arkada planda index mantığında tutulur. ilk [0] index ilk değere eşitlenir
+// İlgili degerlere sayi ataması da yapılabilir. , ile ayrilir.
+// enum [Ad] olarak yazılır.
+// enum Gunler ve enum Sıcaklık bu konu örnekleri içindir
+#endregion
 
 
 #region Constructor Örnekler
@@ -118,7 +125,20 @@ ds1.KisaKenar = 3;
 ds1.UzunKenar = 4;
 Console.WriteLine("Struct Alan Hesabı :{0}", ds1.AlanHesapla());
 #endregion
+#region Enum Örnekleri
+Console.WriteLine(Gunler.Pazar); // Pazar verir çıktıyı
+Console.WriteLine((int)Gunler.Carsamba); // index numarasını verir
 
+int sicaklik = 32;
+if (sicaklik <= (int)HavaDurumu.normal)
+    Console.WriteLine("Dışarıya Çıkmak için havanın biraz daha ısınmasını bekleyelim");
+else if (sicaklik >= (int)HavaDurumu.Sicak)
+    Console.WriteLine("Dışarıya çıkmak için çok sıcak bi gün");
+else if (sicaklik >= (int)HavaDurumu.normal && sicaklik < (int)HavaDurumu.CokSicak)
+    Console.WriteLine("Hadi Dışarı çıkalım");
+
+
+#endregion
 
 
 class Calisan
@@ -239,7 +259,6 @@ static class Islemler
         return sayi1 - sayi2;
     }
 }
-
 class Dikdortgen
 {
     public int KisaKenar;
@@ -249,7 +268,6 @@ class Dikdortgen
         return KisaKenar * UzunKenar;
     }
 }
-
 struct Dikdortgen_Struct
 {
     public int KisaKenar;
@@ -260,3 +278,22 @@ struct Dikdortgen_Struct
         return KisaKenar * UzunKenar;
     }
 }
+enum Gunler
+{
+    Pazartesi,
+    Sali,
+    Carsamba,
+    Persembe,
+    Cuma,
+    Cumartesi,
+    Pazar
+}
+enum HavaDurumu
+{
+    Soguk = 5,
+    normal = 20,
+    Sicak = 25,
+    CokSicak=20
+    
+}
+
