@@ -45,6 +45,16 @@
 // Örnek olarak Calisanlar ve Islemler sınıfı kullanılmıştır.
 
 #endregion
+#region Struct(Yapı)
+//Yapısı ile sınıflara benzerler.
+// Tanımlama şekilleri aynıdır.
+// Sınıflar referans türdür ama Structlar değer türlüdür. Stack'de tutulur
+// Struct'lar nesne oluşturmadan da kullanılabilir.
+// Class Dikdortgen ve struct Dikdortgen_Struct yapıları kullanıldı
+
+
+#endregion
+
 
 #region Constructor Örnekler
 // -> Constructor Örneği [Parametreli]
@@ -97,7 +107,17 @@ Console.WriteLine("Toplama İşlemi Sonucu :{0}", Islemler.Topla(100, 200));
 Console.WriteLine("Çıkarma İşlemi Sonucu :{0}", Islemler.Cikar(400, 50));
 
 #endregion
+#region Struct Örnekleri
+Dikdortgen d1 = new Dikdortgen();
+d1.KisaKenar = 3;
+d1.UzunKenar = 4;
+Console.WriteLine("Class Alan Hesabı :{0}", d1.AlanHesapla());
 
+Dikdortgen_Struct ds1; //new (nesne oluşturmadan) yapmadan ilgili elemanlara erişilebilir.
+ds1.KisaKenar = 3;
+ds1.UzunKenar = 4;
+Console.WriteLine("Struct Alan Hesabı :{0}", ds1.AlanHesapla());
+#endregion
 
 
 
@@ -220,4 +240,23 @@ static class Islemler
     }
 }
 
+class Dikdortgen
+{
+    public int KisaKenar;
+    public int UzunKenar;
+    public long AlanHesapla()
+    {
+        return KisaKenar * UzunKenar;
+    }
+}
 
+struct Dikdortgen_Struct
+{
+    public int KisaKenar;
+    public int UzunKenar;
+
+    public long AlanHesapla()
+    {
+        return KisaKenar * UzunKenar;
+    }
+}

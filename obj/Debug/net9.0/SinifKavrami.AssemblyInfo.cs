@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SinifKavrami")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0362418ce4217c7a5c37e16a761644b69cbe228b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be681fdb0af7b6f24cd45df46c32b91a923d5038")]
 [assembly: System.Reflection.AssemblyProductAttribute("SinifKavrami")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SinifKavrami")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
